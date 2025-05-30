@@ -14,13 +14,13 @@ return new class extends Migration
     {
         Schema::create('user_statuses', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('Status');
             $table->timestamps();
         });
 
         $userStatuses = [
-            ['name' => 'Active'],
-            ['name' => 'Inactive'],
+            ['Status' => 'Active'],
+            ['Status' => 'Inactive'],
         ];
 
         foreach($userStatuses as $userStatus){

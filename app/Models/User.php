@@ -50,4 +50,16 @@ class User extends Authenticatable
             $this->attributes['answer'] = bcrypt($value);
         }
     }
+
+    // Add this relationship to fix the error
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    // Optionally, if you have user_status_id relation
+    public function userStatus()
+    {
+        return $this->belongsTo(UserStatus::class);
+    }
 }

@@ -15,17 +15,17 @@ return new class extends Migration
         // Correcting the table name to 'payments' (plural)
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('Payment');
             $table->timestamps();
         });
 
         // The payment data to be inserted
         $payments = [
-            ['name' => 'Gcash'],
-            ['name' => 'Bank Transfer'],
-            ['name' => 'Cash'],
-            ['name' => 'Credit Card'],
-            ['name' => 'Home Credit'],
+            ['Payment' => 'Gcash'],
+            ['Payment' => 'Bank Transfer'],
+            ['Payment' => 'Cash'],
+            ['Payment' => 'Credit Card'],
+            ['Payment' => 'Home Credit'],
         ];
 
         // Insert each payment method individually
