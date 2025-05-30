@@ -1,0 +1,467 @@
+{
+	"info": {
+		"_postman_id": "e4e5a09a-e7ab-4b22-adf7-f02692b12942",
+		"name": "Ride-X",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "42113750"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"first_name\": \"cidric\",\r\n  \"middle_name\": \"\",\r\n  \"last_name\": \"Sanchez\",\r\n  \"email\": \"Cidric@gmail.com\",\r\n  \"username\": \"cidric\",\r\n  \"password\": \"123123123\",\r\n  \"confirm_password\": \"123123123\",\r\n  \"security_questions\": \"2\",\r\n  \"answer\": \"MyFirstPet\",\r\n  \"role_id\": 1,\r\n  \"user_status_id\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/register",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"cidric\",\r\n  \"password\": \"123123123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/login/",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vault:authorization-secret}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}api/logout",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Ride-X(Users)",
+			"item": [
+				{
+					"name": "Get_Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vault:authorization-secret}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}api/get-users",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"get-users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add_User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vault:authorization-secret}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"first_name\": \"sad\",\r\n  \"middle_name\": \"sad\",\r\n  \"last_name\": \"sad\",\r\n  \"email\": \"asd@gmail.com\",\r\n  \"username\": \"sad\",\r\n  \"password\": \"123123123\",\r\n  \"confirm_password\": \"123123123\",\r\n  \"security_questions\": 3,\r\n  \"answer\": \",\",\r\n  \"role_id\": 1,\r\n  \"user_status_id\": 1\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/add-user",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"add-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit_User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vault:authorization-secret}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/edit-user/1\n",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"edit-user",
+								"1\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete_User",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vault:authorization-secret}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}delete-user/{1}\n",
+							"host": [
+								"{{baseUrl}}delete-user"
+							],
+							"path": [
+								"{1}\n"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicles",
+			"item": [
+				{
+					"name": "Get_Vehicles",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vault:authorization-secret}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}api/get-vehicles",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"get-vehicles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add_Vehicle",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vault:authorization-secret}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}api/add-vehicle\n",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"add-vehicle\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vault:authorization-secret}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}edit-vehicle/1\n",
+							"host": [
+								"{{baseUrl}}edit-vehicle"
+							],
+							"path": [
+								"1\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sales",
+			"item": [
+				{
+					"name": "Get_Sales",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}api/get-sales\n",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"get-sales\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add_Sale",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{vault:authorization-secret}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/add-sales\n",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"add-sales\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit_Sale",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}api//edit-vehicle/1\n",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"",
+								"edit-vehicle",
+								"1\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}api/delete-sales/1\n",
+							"host": [
+								"{{baseUrl}}api"
+							],
+							"path": [
+								"delete-sales",
+								"1\n"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
